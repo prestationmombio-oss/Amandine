@@ -1,0 +1,157 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Amandine – Boutique</title><meta name="theme-color" content="#b8893a"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--g:#b8893a;--g2:#e6c26e;--t:#b4553a;--v:#1f5a43;--c:#fbf3ea;--i:#2a2118;--m:#7a6a5a;--r:20px}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+body{font:15px/1.45 'Plus Jakarta Sans',system-ui,sans-serif;color:var(--i);background:linear-gradient(160deg,#fff7ee,#f6e3d3);min-height:100vh;padding-bottom:90px}
+button,input,select,textarea{font:inherit;color:inherit}
+header{position:relative;padding:calc(env(safe-area-inset-top) + 18px) 18px 8px;text-align:center}
+.logo{font:64px/1 'Great Vibes',cursive;background:linear-gradient(90deg,#8d6422,var(--g2),#8d6422);-webkit-background-clip:text;color:transparent}
+.tag{color:var(--m);font-size:13px}
+.wrap{max-width:900px;margin:auto;padding:0 14px}
+.search{width:100%;padding:14px 18px;border-radius:99px;border:1px solid #ead9c4;background:#fff9;backdrop-filter:blur(10px);margin:12px 0}
+.chips{display:flex;gap:8px;overflow:auto;padding:4px 0 12px;scrollbar-width:none}
+.chip{white-space:nowrap;padding:9px 16px;border-radius:99px;border:1px solid #ead9c4;background:#fff8;cursor:pointer;font-weight:600;font-size:13px}
+.chip.on{background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;border-color:transparent}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}
+.card{background:#fffc;backdrop-filter:blur(12px);border-radius:var(--r);overflow:hidden;box-shadow:0 8px 24px #b8893a22;display:flex;flex-direction:column;transition:.2s}
+.card:active{transform:scale(.98)}
+.ph{aspect-ratio:1;background:linear-gradient(135deg,var(--t),var(--g2));display:grid;place-items:center;font:700 48px 'Great Vibes';color:#fff;background-size:cover;background-position:center}
+.cb{padding:10px 12px 12px;display:flex;flex-direction:column;gap:4px;flex:1}
+.cb b{font-size:14px}.pr{color:var(--v);font-weight:800}
+.btn{border:0;border-radius:14px;padding:11px 16px;font-weight:700;cursor:pointer;background:linear-gradient(135deg,var(--g),var(--g2));color:#fff}
+.btn.v{background:linear-gradient(135deg,var(--v),#2f8a66)}.btn.t{background:var(--t)}.btn.o{background:#fff;color:var(--i);border:1px solid #ead9c4}.btn.s{padding:7px 11px;font-size:12px;border-radius:10px}
+.btn:disabled{opacity:.5}
+.fab{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom) + 16px);z-index:5;box-shadow:0 10px 30px #1f5a4366;padding:15px 26px;border-radius:99px;display:none}
+.sheet{position:fixed;inset:0;background:#2a211888;z-index:20;display:none;align-items:flex-end;justify-content:center}
+.sheet.on{display:flex}.sh{background:var(--c);width:100%;max-width:560px;max-height:92vh;overflow:auto;border-radius:28px 28px 0 0;padding:20px 18px calc(env(safe-area-inset-bottom) + 20px);animation:up .25s}
+@keyframes up{from{transform:translateY(40px);opacity:0}}
+.sh h2{font-size:20px;margin-bottom:12px}
+.row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #ead9c4}
+.row .grow{flex:1}.q{display:flex;align-items:center;gap:8px}.q button{width:28px;height:28px;border-radius:50%;border:1px solid #ddc;background:#fff}
+input,select,textarea{width:100%;padding:12px 14px;border:1px solid #ead9c4;border-radius:12px;background:#fff;margin:5px 0}
+label{font-size:12px;color:var(--m);font-weight:600}
+.tot{display:flex;justify-content:space-between;padding:4px 0}.tot.b{font-weight:800;font-size:17px}
+.tabs{display:flex;gap:6px;margin:10px 0}.tabs .chip{flex:1;text-align:center}
+.ord{background:#fffd;border-radius:var(--r);padding:14px;margin:10px 0;box-shadow:0 6px 18px #b8893a1c}
+.st{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11px;font-weight:800;color:#fff;background:var(--t)}
+.st.confirmée{background:var(--g)}.st.préparation{background:#8a5fb4}.st.livraison{background:#3a6fb4}.st.livrée{background:var(--v)}.st.annulée{background:#999}
+.ban{position:fixed;left:12px;right:12px;bottom:calc(env(safe-area-inset-bottom) + 84px);z-index:15;background:var(--i);color:#fff;border-radius:18px;padding:12px 14px;display:none;align-items:center;gap:10px;font-size:13px}
+.ban .grow{flex:1}
+.toast{position:fixed;top:14px;left:50%;transform:translateX(-50%);background:var(--i);color:#fff;padding:10px 18px;border-radius:99px;z-index:50;display:none;font-size:13px}
+.empty{text-align:center;color:var(--m);padding:40px 0}
+footer{text-align:center;color:var(--m);font-size:12px;margin:30px 0}footer a{color:var(--t);cursor:pointer}
+</style></head><body>
+<header><button class="btn s o" id="acc" onclick="openAcc()" style="position:absolute;right:14px;top:calc(env(safe-area-inset-top) + 14px)">Se connecter</button><div class="logo">Amandine</div><div class="tag">Révélez votre éclat, sublimez votre style</div></header>
+<div class="wrap" id="app"></div>
+<button class="btn v fab" id="fab" onclick="openCart()"></button>
+<div class="ban" id="ban"><div class="grow" id="bant"></div><button class="btn s" id="binst">Installer</button><button class="btn s o" onclick="this.parentNode.style.display='none'">✕</button></div>
+<div class="sheet" id="sheet" onclick="if(event.target==this)closeS()"><div class="sh" id="sh"></div></div>
+<div class="toast" id="toast"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="config.js"></script>
+<script>
+const $=s=>document.querySelector(s),F=n=>Number(n||0).toLocaleString('fr-FR')+' FCFA',E=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const L=(k,d)=>{try{return JSON.parse(localStorage.getItem('amd_'+k))??d}catch{return d}},W=(k,v)=>localStorage.setItem('amd_'+k,JSON.stringify(v));
+const toast=t=>{const e=$('#toast');e.textContent=t;e.style.display='block';setTimeout(()=>e.style.display='none',2600)};
+function shrink(f){return new Promise(r=>{const i=new Image();i.onload=()=>{const k=Math.min(1,900/Math.max(i.width,i.height)),c=document.createElement('canvas');c.width=i.width*k;c.height=i.height*k;c.getContext('2d').drawImage(i,0,0,c.width,c.height);c.toBlob(b=>r(b),'image/jpeg',.8)};i.src=URL.createObjectURL(f)})}
+const sb=(CFG.url&&window.supabase)?supabase.createClient(CFG.url,CFG.key):null;
+/* ===== Couche données : Supabase, ou mode démo (localStorage) ===== */
+const API=sb?{
+ async products(){return(await sb.from('products').select('*').order('created_at',{ascending:false})).data||[]},
+ async saveP(p){const{error}=await sb.from('products').upsert(p);if(error)throw error},
+ async delP(id){await sb.from('products').delete().eq('id',id)},
+ async img(f){const b=await shrink(f),n=Date.now()+'.jpg',{error}=await sb.storage.from('produits').upload(n,b,{contentType:'image/jpeg'});if(error)throw error;return sb.storage.from('produits').getPublicUrl(n).data.publicUrl},
+ async zones(){return(await sb.from('zones').select('*')).data||[]},
+ async saveZ(z){await sb.from('zones').upsert(z)},
+ async order(o){const{error}=await sb.from('orders').insert(o);if(error)throw error},
+ async orders(){return(await sb.from('orders').select('*').order('created_at',{ascending:false}).limit(200)).data||[]},
+ async status(id,s){await sb.from('orders').update({status:s}).eq('id',id)},
+ async login(p,w){const{error}=await sb.auth.signInWithPassword({email:p+'@amandine.shop',password:w});if(error)throw error},
+ async signup(n,p,w){const{error}=await sb.auth.signUp({email:p+'@amandine.shop',password:w,options:{data:{name:n,phone:p}}});if(error)throw error},
+ async out(){await sb.auth.signOut()},
+ async user(){const u=(await sb.auth.getSession()).data.session?.user;if(!u)return null;const{data:p}=await sb.from('profiles').select('name,phone,role').eq('id',u.id).maybeSingle();return{id:u.id,phone:p?.phone||u.email.split('@')[0],name:p?.name||u.user_metadata?.name||'',admin:p?.role=='admin'}},
+ async clients(){return(await sb.from('profiles').select('*').order('created_at',{ascending:false})).data||[]},
+ async reset(id){const{data,error}=await sb.functions.invoke('reset-password',{body:{user_id:id}});if(error||data?.error)throw error||data.error;return data.password},
+ async myOrders(){return(await sb.from('orders').select('*').order('created_at',{ascending:false})).data||[]}
+}:{
+ async products(){return L('p',[{id:'1',name:'Boubou brodé orange',category:'Boubous',price:25000,stock:5,active:true},{id:'2',name:'Sandales dorées',category:'Chaussures & Sacs',price:12000,stock:8,active:true},{id:'3',name:'Parfum Ambre 50 ml',category:'Parfums & Bijoux',price:15000,stock:10,active:true},{id:'4',name:'Savon noir marocain',category:'Soins naturels',price:3500,stock:30,active:true},{id:'5',name:'Parure de draps 2 places',category:'Draps',price:18000,stock:6,active:true}])},
+ async saveP(p){const a=await this.products(),i=a.findIndex(x=>x.id==p.id);i<0?a.unshift(p):a[i]=p;W('p',a)},
+ async delP(id){W('p',(await this.products()).filter(x=>x.id!=id))},
+ async img(f){const b=await shrink(f);return new Promise(r=>{const x=new FileReader;x.onload=()=>r(x.result);x.readAsDataURL(b)})},
+ async zones(){return L('z',CFG.communes.map(c=>({commune:c,price:1500})))},
+ async saveZ(z){const a=await this.zones();a.find(x=>x.commune==z.commune).price=z.price;W('z',a)},
+ async order(o){const a=L('o',[]);a.unshift({...o,id:crypto.randomUUID(),created_at:new Date().toISOString(),status:'nouvelle'});W('o',a)},
+ async orders(){return L('o',[])},
+ async status(id,s){const a=L('o',[]);a.find(x=>x.id==id).status=s;W('o',a)},
+ async login(p,w){if(p==CFG.gerante&&w=='demo'){W('cu',{phone:p,name:'Amandine',admin:true});return}const u=L('users',[]).find(x=>x.phone==p&&x.pw==w);if(!u)throw 1;W('cu',{phone:u.phone,name:u.name})},
+ async signup(n,p,w){const a=L('users',[]);if(a.find(x=>x.phone==p))throw 1;a.push({name:n,phone:p,pw:w});W('users',a);W('cu',{phone:p,name:n})},
+ async clients(){return L('users',[]).map(u=>({id:u.phone,name:u.name,phone:u.phone}))},
+ async reset(id){const a=L('users',[]),u=a.find(x=>x.phone==id),pw=String(Math.floor(100000+Math.random()*900000));u.pw=pw;W('users',a);return pw},
+ async out(){W('cu',null)},async user(){return L('cu',null)},
+ async myOrders(){const u=L('cu',null);return L('o',[]).filter(o=>o.phone.replace(/\D/g,'')==u.phone)}
+};
+/* ===== Boutique ===== */
+let P=[],Z=[],cart=L('cart',{}),cat='Tout',qs='';
+const sub=()=>Object.entries(cart).reduce((s,[id,q])=>s+(P.find(p=>p.id==id)?.price||0)*q,0),cnt=()=>Object.values(cart).reduce((a,b)=>a+b,0);
+let U=null;async function whoami(){U=await API.user();$('#acc').textContent=U?(U.admin?'Espace gérante':'Mon compte'):'Se connecter'}
+async function boot(){await whoami();[P,Z]=await Promise.all([API.products(),API.zones()]);route()}
+function route(){location.hash=='#gerante'?admin():shop()}
+addEventListener('hashchange',route);
+function shop(){const cs=['Tout',...CFG.cats],l=P.filter(p=>p.active!==false&&(cat=='Tout'||p.category==cat)&&p.name.toLowerCase().includes(qs.toLowerCase()));
+$('#app').innerHTML=`<input class="search" placeholder="Rechercher un article…" value="${E(qs)}" oninput="qs=this.value;grid()"><div class="chips">${cs.map(c=>`<div class="chip ${c==cat?'on':''}" onclick="cat='${c.replace(/'/g,"\\'")}';shop()">${E(c)}</div>`).join('')}</div><div class="grid" id="grid"></div><footer>Livraison rapide dans tout Abidjan · WhatsApp ${E(CFG.wa.replace(/^225/,'+225 '))}<br><a href="#gerante">Espace gérante</a></footer>`;grid();fab()}
+function grid(){const l=P.filter(p=>p.active!==false&&(cat=='Tout'||p.category==cat)&&p.name.toLowerCase().includes(qs.toLowerCase()));
+$('#grid').innerHTML=l.map(p=>`<div class="card"><div class="ph" style="${p.image_url?`background-image:url('${E(p.image_url)}')`:''}">${p.image_url?'':'A'}</div><div class="cb"><b>${E(p.name)}</b><span class="pr">${F(p.price)}</span>${p.stock<=0?'<small>Épuisé</small>':`<button class="btn s" onclick="add('${p.id}')">+ Ajouter</button>`}</div></div>`).join('')||'<div class="empty" style="grid-column:1/-1">Aucun article pour le moment.</div>'}
+function fab(){const f=$('#fab'),n=cnt();f.style.display=n&&location.hash!='#gerante'?'block':'none';f.textContent=`🛍 Voir mon panier (${n}) · ${F(sub())}`}
+function add(id){cart[id]=(cart[id]||0)+1;W('cart',cart);fab();toast('Ajouté au panier')}
+function openS(h){$('#sh').innerHTML=h;$('#sheet').classList.add('on')}function closeS(){$('#sheet').classList.remove('on')}
+function openCart(){const ids=Object.keys(cart).filter(i=>P.find(p=>p.id==i));
+if(!ids.length)return openS('<h2>Mon panier</h2><div class="empty">Votre panier est vide.</div>');
+openS(`<h2>Mon panier</h2>${ids.map(i=>{const p=P.find(x=>x.id==i);return`<div class="row"><div class="grow"><b>${E(p.name)}</b><br><span class="pr">${F(p.price*cart[i])}</span></div><div class="q"><button onclick="qty('${i}',-1)">−</button><b>${cart[i]}</b><button onclick="qty('${i}',1)">+</button></div></div>`}).join('')}
+<h2 style="margin-top:16px">Vos informations</h2><p class="tag">${U?`Connecté(e) : ${E(U.name||U.phone)}`:`Pas besoin de compte : commandez directement, ou <a style="color:var(--t);font-weight:700" onclick="accForm('up')">créez un compte</a> pour suivre vos commandes.`}</p><label>Nom</label><input id="cn" autocomplete="name" value="${E(U?.name)}"><label>Téléphone</label><input id="cp" type="tel" autocomplete="tel" value="${E(U?.phone)}"><label>Commune de livraison</label><select id="cc" onchange="tt()"><option value="">Choisir…</option>${Z.map(z=>`<option value="${E(z.commune)}">${E(z.commune)} (${F(z.price)})</option>`).join('')}</select><label>Adresse / repère</label><input id="ca"><label>Précision (taille, couleur…)</label><textarea id="cm" rows="2"></textarea>
+<div class="tot"><span>Articles</span><span>${F(sub())}</span></div><div class="tot"><span>Livraison</span><span id="tl">—</span></div><div class="tot b"><span>Total</span><span id="tt">${F(sub())}</span></div><button class="btn v" style="width:100%;margin-top:12px" id="go" onclick="send()">Commander</button>`)}
+function qty(i,d){cart[i]=(cart[i]||0)+d;if(cart[i]<=0)delete cart[i];W('cart',cart);fab();openCart()}
+const fee=()=>Z.find(z=>z.commune==$('#cc')?.value)?.price??null;
+function tt(){const f=fee();$('#tl').textContent=f==null?'—':F(f);$('#tt').textContent=F(sub()+(f||0))}
+async function send(){const n=$('#cn').value.trim(),p=$('#cp').value.trim(),c=$('#cc').value,a=$('#ca').value.trim();
+if(!n||p.replace(/\D/g,'').length<8||!c||!a)return toast('Complétez nom, téléphone, commune et adresse');
+const items=Object.keys(cart).map(i=>{const x=P.find(y=>y.id==i);return x&&{id:i,name:x.name,price:x.price,qty:cart[i]}}).filter(Boolean),f=fee(),o={customer_name:n,phone:p,commune:c,address:a,note:$('#cm').value,items,subtotal:sub(),delivery_fee:f,total:sub()+f,ref:'AMD-'+Math.floor(10000+Math.random()*90000)};
+$('#go').disabled=true;try{await API.order(o)}catch(e){$('#go').disabled=false;return toast('Erreur, réessayez')}
+const msg=`Bonjour Amandine, nouvelle commande ${o.ref} de ${n} (${p})\n${items.map(i=>`• ${i.qty} x ${i.name}`).join('\n')}\nLivraison ${c} : ${F(f)}\nTOTAL : ${F(o.total)}\nAdresse : ${a}`;
+cart={};W('cart',cart);fab();openS(`<h2>✅ Commande envoyée !</h2><p>Référence <b>${o.ref}</b>. Merci ${E(n)} ! Amandine vous appelle bientôt pour confirmer la livraison.</p><a class="btn v" style="display:block;text-align:center;text-decoration:none;margin-top:14px" target="_blank" href="https://wa.me/${CFG.wa}?text=${encodeURIComponent(msg)}">Prévenir sur WhatsApp</a><button class="btn o" style="width:100%;margin-top:8px" onclick="closeS()">Fermer</button>`)}
+/* ===== Espace gérante ===== */
+let tab='cmd',OR=[],tm;
+async function admin(){fab();if(!U?.admin){$('#app').innerHTML=`<div class="ord" style="margin-top:20px"><h2>Espace gérante</h2><label>Votre numéro</label><input id="lp" type="tel" value="${CFG.gerante}"><label>Mot de passe${sb?'':' (démo : demo)'}</label><input id="lw" type="password"><button class="btn" style="width:100%;margin-top:8px" onclick="login()">Se connecter</button><p style="margin-top:10px"><a href="#" onclick="location.hash=''">← Retour boutique</a></p></div>`;return}
+OR=await API.orders();clearTimeout(tm);tm=setTimeout(()=>{if(location.hash=='#gerante'&&tab=='cmd')admin()},30000);
+const nb=OR.filter(o=>o.status=='nouvelle').length;
+$('#app').innerHTML=`<div class="tabs"><div class="chip ${tab=='cmd'?'on':''}" onclick="tab='cmd';admin()">Commandes${nb?` (${nb})`:''}</div><div class="chip ${tab=='art'?'on':''}" onclick="tab='art';admin()">Articles</div><div class="chip ${tab=='liv'?'on':''}" onclick="tab='liv';admin()">Livraison</div><div class="chip ${tab=='cli'?'on':''}" onclick="tab='cli';admin()">Clientes</div></div><div id="ad"></div><p style="text-align:center;margin:20px"><a href="#" onclick="location.hash=''">← Boutique</a> · <a href="#gerante" onclick="API.out().then(whoami).then(admin)">Déconnexion</a></p>`;
+({cmd:vCmd,art:vArt,liv:vLiv,cli:vCli})[tab]()}
+async function login(){try{await API.login($('#lp').value.replace(/\D/g,''),$('#lw').value);await whoami();admin()}catch{toast('Identifiants incorrects')}}
+const NX={nouvelle:['confirmée','Confirmer'],confirmée:['préparation','En préparation'],préparation:['livraison','En livraison'],livraison:['livrée','Marquer livrée']};
+function vCmd(){$('#ad').innerHTML=OR.map(o=>{const n=NX[o.status],tel=o.phone.replace(/\D/g,''),w=tel.startsWith('225')?tel:'225'+tel;return`<div class="ord"><div class="row" style="border:0"><b class="grow">${E(o.customer_name)} <small>${E(o.ref||'')}</small></b><span class="st ${o.status}">${o.status}</span></div><small>${new Date(o.created_at).toLocaleString('fr-FR')} · ${E(o.commune)} · ${E(o.address)}</small><div style="margin:8px 0">${(o.items||[]).map(i=>`${i.qty} × ${E(i.name)}`).join('<br>')}${o.note?`<br><i>${E(o.note)}</i>`:''}</div><b>${F(o.total)}</b> <small>(livraison ${F(o.delivery_fee)})</small><div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:10px"><a class="btn s o" href="tel:${E(o.phone)}" style="text-decoration:none">📞 Appeler</a><a class="btn s o" target="_blank" href="https://wa.me/${w}" style="text-decoration:none">💬 WhatsApp</a>${n?`<button class="btn s v" onclick="ST('${o.id}','${n[0]}')">${n[1]}</button>`:''}${['nouvelle','confirmée','préparation'].includes(o.status)?`<button class="btn s t" onclick="ST('${o.id}','annulée')">Annuler</button>`:''}</div></div>`}).join('')||'<div class="empty">Aucune commande pour le moment.</div>'}
+const MSG={confirmée:`votre commande est confirmée ✅`,préparation:`votre commande est en préparation 🧵`,livraison:`votre commande est en route 🚚, restez joignable`,livrée:`votre commande est livrée. Merci pour votre confiance 🙏`,annulée:`votre commande a été annulée. Contactez-nous pour plus d'informations`};
+async function vCli(){const c=await API.clients();$('#ad').innerHTML=c.map(x=>`<div class="row"><div class="grow"><b>${E(x.name||'—')}</b><br><small>${E(x.phone)}</small></div><button class="btn s o" onclick="RP('${x.id}')">Mot de passe</button></div>`).join('')||'<div class="empty">Aucune cliente inscrite.</div>'}
+async function RP(id){if(!confirm('Générer un nouveau mot de passe pour cette cliente ?'))return;try{const p=await API.reset(id),c=(await API.clients()).find(x=>x.id==id),t=c.phone.replace(/\D/g,''),w=t.startsWith('225')?t:'225'+t;openS(`<h2>Nouveau mot de passe</h2><p style="font-size:30px;font-weight:800;text-align:center;letter-spacing:4px">${p}</p><a class="btn v" style="display:block;text-align:center;text-decoration:none" target="_blank" href="https://wa.me/${w}?text=${encodeURIComponent('Bonjour, votre nouveau mot de passe Amandine : '+p)}">Envoyer par WhatsApp</a>`)}catch(e){toast('Échec (fonction reset-password déployée ?)')}}
+async function ST(id,s){const o=OR.find(x=>x.id==id);await API.status(id,s);await admin();const t=o.phone.replace(/\D/g,''),w=t.startsWith('225')?t:'225'+t,m=`Bonjour ${o.customer_name}, ${MSG[s]} (${o.ref||''}). Amandine`;
+openS(`<h2>Prévenir la cliente ?</h2><p>Envoyer ce message WhatsApp à ${E(o.customer_name)} :</p><p style="background:#fff;border-radius:12px;padding:10px;margin:10px 0"><i>${E(m)}</i></p><a class="btn v" style="display:block;text-align:center;text-decoration:none" target="_blank" href="https://wa.me/${w}?text=${encodeURIComponent(m)}" onclick="closeS()">Envoyer le message</a><button class="btn o" style="width:100%;margin-top:8px" onclick="closeS()">Plus tard</button>`)}
+function vArt(){$('#ad').innerHTML=`<button class="btn" style="width:100%" onclick="eP()">+ Ajouter un article</button>`+P.map(p=>`<div class="row"><div class="ph" style="width:52px;height:52px;border-radius:12px;font-size:26px;${p.image_url?`background-image:url('${E(p.image_url)}')`:''}">${p.image_url?'':'A'}</div><div class="grow"><b>${E(p.name)}</b>${p.active===false?' <small>(masqué)</small>':''}<br><small>${E(p.category)} · stock ${p.stock}</small><br><input type="number" value="${p.price}" style="width:110px;padding:6px 8px;margin:2px 0" onchange="qp('${p.id}',this.value)"> <small>FCFA</small></div><button class="btn s o" onclick="eP('${p.id}')">Modifier</button></div>`).join('')}
+async function qp(id,v){const p=P.find(x=>x.id==id);p.price=+v;await API.saveP(p);toast('Prix modifié')}
+function eP(id){const p=P.find(x=>x.id==id)||{id:crypto.randomUUID(),name:'',category:CFG.cats[0],price:'',stock:1,active:true,image_url:''};window._p=p;
+openS(`<h2>${id?'Modifier':'Nouvel'} article</h2><label>Photo</label><input type="file" id="pf" accept="image/*"><label>Nom</label><input id="pn" value="${E(p.name)}"><label>Catégorie</label><select id="pc">${CFG.cats.map(c=>`<option ${c==p.category?'selected':''}>${E(c)}</option>`).join('')}</select><label>Prix (FCFA)</label><input id="pp" type="number" value="${p.price}"><label>Stock</label><input id="ps" type="number" value="${p.stock}"><label><input type="checkbox" id="pa" style="width:auto" ${p.active!==false?'checked':''}> Visible en ligne</label><button class="btn v" style="width:100%;margin-top:10px" id="sv" onclick="sP()">Enregistrer</button>${id?`<button class="btn t" style="width:100%;margin-top:8px" onclick="dP('${id}')">Supprimer</button>`:''}`)}
+async function sP(){const p=window._p,f=$('#pf').files[0];$('#sv').disabled=true;try{if(f)p.image_url=await API.img(f);Object.assign(p,{name:$('#pn').value.trim(),category:$('#pc').value,price:+$('#pp').value,stock:+$('#ps').value,active:$('#pa').checked});if(!p.name||!p.price)throw 0;await API.saveP(p);P=await API.products();closeS();admin()}catch(e){$('#sv').disabled=false;toast('Nom et prix obligatoires')}}
+async function dP(id){if(confirm('Supprimer cet article ?')){await API.delP(id);P=await API.products();closeS();admin()}}
+function vLiv(){$('#ad').innerHTML='<p class="tag" style="margin:6px 0">Prix de livraison par commune :</p>'+Z.map(z=>`<div class="row"><b class="grow">${E(z.commune)}</b><input type="number" style="width:120px" value="${z.price}" onchange="sZ('${E(z.commune)}',this.value)"> <small>FCFA</small></div>`).join('')}
+async function sZ(c,v){await API.saveZ({commune:c,price:+v});Z=await API.zones();toast('Tarif enregistré')}
+/* ===== Comptes clients ===== */
+function openAcc(){if(U?.admin){location.hash='#gerante';return}U?accHome():accForm('in')}
+function accForm(m){const s=m=='up';openS(`<h2>${s?'Créer un compte':'Se connecter'}</h2><div class="tabs"><div class="chip ${s?'':'on'}" onclick="accForm('in')">Connexion</div><div class="chip ${s?'on':''}" onclick="accForm('up')">Créer un compte</div></div>${s?'<label>Nom</label><input id="an" autocomplete="name">':''}<label>Téléphone</label><input id="ap" type="tel" autocomplete="tel"><label>Mot de passe${s?' (6 caractères minimum)':''}</label><input id="aw" type="password" autocomplete="${s?'new':'current'}-password"><button class="btn v" style="width:100%;margin-top:10px" id="ag" onclick="accGo('${m}')">${s?'Créer mon compte':'Me connecter'}</button><p class="tag" style="margin-top:10px;text-align:center">Pas besoin de compte pour commander.</p>${s?'':`<p class="tag" style="text-align:center;margin-top:6px"><a style="color:var(--t);font-weight:700" target="_blank" href="https://wa.me/${CFG.wa}?text=${encodeURIComponent("Bonjour, j'ai oublié mon mot de passe")}">Mot de passe oublié ?</a></p>`}`)}
+async function accGo(m){const n=$('#an')?.value.trim(),p=$('#ap').value.replace(/\D/g,''),w=$('#aw').value;
+if(p.length<8||w.length<6||(m=='up'&&!n))return toast('Complétez les champs (mot de passe : 6 caractères min.)');
+$('#ag').disabled=true;try{m=='up'?await API.signup(n,p,w):await API.login(p,w);await whoami();closeS();toast('Bienvenue '+(U.name||''));if(U.admin)location.hash='#gerante'}catch{$('#ag').disabled=false;toast(m=='up'?'Création impossible (numéro déjà utilisé ?)':'Identifiants incorrects')}}
+async function accHome(){const o=await API.myOrders();openS(`<h2>Bonjour ${E(U.name||U.phone)}</h2><h3 style="margin:8px 0">Mes commandes</h3>${o.map(x=>`<div class="row"><div class="grow"><small>${new Date(x.created_at).toLocaleDateString('fr-FR')}</small><br>${(x.items||[]).map(i=>`${i.qty} × ${E(i.name)}`).join(', ')}<br><b>${F(x.total)}</b></div><span class="st ${x.status}">${x.status}</span></div>`).join('')||'<div class="empty">Aucune commande pour le moment.</div>'}<button class="btn o" style="width:100%;margin-top:12px" onclick="API.out().then(whoami).then(()=>{closeS();toast('Déconnecté')})">Se déconnecter</button>`)}
+/* ===== PWA ===== */
+if('serviceWorker'in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js'));
+let dp;addEventListener('beforeinstallprompt',e=>{e.preventDefault();dp=e;if(!L('noins',0)){$('#bant').textContent='Installez la boutique sur votre téléphone';$('#ban').style.display='flex'}});
+$('#binst').onclick=async()=>{$('#ban').style.display='none';if(dp){dp.prompt();dp=null}};
+if(/iphone|ipad/i.test(navigator.userAgent)&&!navigator.standalone){$('#bant').textContent='Installer : touchez Partager puis « Sur l\'écran d\'accueil »';$('#binst').style.display='none';$('#ban').style.display='flex'}
+boot();
+</script></body></html>

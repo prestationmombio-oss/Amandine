@@ -1,0 +1,24 @@
+BOUTIQUE AMANDINE (PWA, Supabase + hébergement gratuit)
+
+A. Base de données (10 min)
+1. supabase.com > New project (nom amandine, notez le mot de passe base, région Europe).
+2. SQL Editor > New query > coller tout schema.sql > Run. (Si une ancienne version a déjà été lancée : voir migration-comptes.sql.)
+3. Authentication > Providers > Email : DÉSACTIVER « Confirm email » > Save.
+4. Project Settings > API : copier Project URL et clé « anon public » dans config.js (gardez les guillemets).
+
+B. Mettre en ligne
+Netlify Drop (app.netlify.com/drop : glisser le dossier) ou Vercel (vercel --prod). Ouvrez le site sur téléphone : bannière « Installer ».
+
+C. Devenir gérante
+1. Sur le site : Se connecter > Créer un compte, avec le numéro d'Amandine.
+2. Supabase > SQL Editor : update profiles set role='admin' where phone='0787027983'; > Run.
+3. Se déconnecter/reconnecter : le bouton devient « Espace gérante ».
+
+D. Espace gérante
+Commandes (Nouvelle > Confirmée > En préparation > En livraison > Livrée, ou Annulée ; un message WhatsApp prêt est proposé à chaque changement), Articles (photo, prix modifiable directement), Livraison (prix par commune), Clientes (réinitialiser un mot de passe).
+
+E. Mot de passe oublié (optionnel)
+Supabase > Edge Functions > nouvelle fonction « reset-password » > coller reset-password.ts > Deploy. Dans l'onglet Clientes : « Mot de passe » génère un code à envoyer par WhatsApp.
+
+Mode démo (sans Supabase) : laissez config.js vide ; espace gérante = numéro 0787027983 + mot de passe demo.
+Sécurité : la clé « anon » est publique par conception ; ne publiez jamais la clé « service_role ».
