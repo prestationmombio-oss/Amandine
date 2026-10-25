@@ -1,40 +1,40 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Amandine – Boutique</title><meta name="theme-color" content="#b8893a"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Amandine – Boutique</title><meta name="theme-color" content="#8b3fb8"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-:root{--g:#b8893a;--g2:#e6c26e;--t:#b4553a;--v:#1f5a43;--c:#fbf3ea;--i:#2a2118;--m:#7a6a5a;--r:20px}
+:root{--g:#8b3fb8;--g2:#f06bb0;--t:#d63384;--v:#6a2c91;--c:#fdf2f8;--i:#2b1736;--m:#7d6a8a;--r:20px}
 *{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
-body{font:15px/1.45 'Plus Jakarta Sans',system-ui,sans-serif;color:var(--i);background:linear-gradient(160deg,#fff7ee,#f6e3d3);min-height:100vh;padding-bottom:90px}
+body{font:15px/1.45 'Plus Jakarta Sans',system-ui,sans-serif;color:var(--i);background:linear-gradient(160deg,#fff5fb,#f3e4fa);min-height:100vh;padding-bottom:90px}
 button,input,select,textarea{font:inherit;color:inherit}
 header{position:relative;padding:calc(env(safe-area-inset-top) + 18px) 18px 8px;text-align:center}
-.logo{font:64px/1 'Great Vibes',cursive;background:linear-gradient(90deg,#8d6422,var(--g2),#8d6422);-webkit-background-clip:text;color:transparent}
+.logo{font:64px/1 'Great Vibes',cursive;background:linear-gradient(90deg,#6a2c91,var(--g2),#6a2c91);-webkit-background-clip:text;color:transparent}
 .tag{color:var(--m);font-size:13px}
 .wrap{max-width:900px;margin:auto;padding:0 14px}
-.search{width:100%;padding:14px 18px;border-radius:99px;border:1px solid #ead9c4;background:#fff9;backdrop-filter:blur(10px);margin:12px 0}
+.search{width:100%;padding:14px 18px;border-radius:99px;border:1px solid #ecd3f0;background:#fff9;backdrop-filter:blur(10px);margin:12px 0}
 .chips{display:flex;gap:8px;overflow:auto;padding:4px 0 12px;scrollbar-width:none}
-.chip{white-space:nowrap;padding:9px 16px;border-radius:99px;border:1px solid #ead9c4;background:#fff8;cursor:pointer;font-weight:600;font-size:13px}
+.chip{white-space:nowrap;padding:9px 16px;border-radius:99px;border:1px solid #ecd3f0;background:#fff8;cursor:pointer;font-weight:600;font-size:13px}
 .chip.on{background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;border-color:transparent}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}
-.card{background:#fffc;backdrop-filter:blur(12px);border-radius:var(--r);overflow:hidden;box-shadow:0 8px 24px #b8893a22;display:flex;flex-direction:column;transition:.2s}
+.card{background:#fffc;backdrop-filter:blur(12px);border-radius:var(--r);overflow:hidden;box-shadow:0 8px 24px #8b3fb822;display:flex;flex-direction:column;transition:.2s}
 .card:active{transform:scale(.98)}
 .ph{aspect-ratio:1;background:linear-gradient(135deg,var(--t),var(--g2));display:grid;place-items:center;font:700 48px 'Great Vibes';color:#fff;background-size:cover;background-position:center}
 .cb{padding:10px 12px 12px;display:flex;flex-direction:column;gap:4px;flex:1}
 .cb b{font-size:14px}.pr{color:var(--v);font-weight:800}
 .btn{border:0;border-radius:14px;padding:11px 16px;font-weight:700;cursor:pointer;background:linear-gradient(135deg,var(--g),var(--g2));color:#fff}
-.btn.v{background:linear-gradient(135deg,var(--v),#2f8a66)}.btn.t{background:var(--t)}.btn.o{background:#fff;color:var(--i);border:1px solid #ead9c4}.btn.s{padding:7px 11px;font-size:12px;border-radius:10px}
+.btn.v{background:linear-gradient(135deg,var(--v),#a64ac9)}.btn.t{background:var(--t)}.btn.o{background:#fff;color:var(--i);border:1px solid #ecd3f0}.btn.s{padding:7px 11px;font-size:12px;border-radius:10px}
 .btn:disabled{opacity:.5}
-.fab{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom) + 16px);z-index:5;box-shadow:0 10px 30px #1f5a4366;padding:15px 26px;border-radius:99px;display:none}
-.sheet{position:fixed;inset:0;background:#2a211888;z-index:20;display:none;align-items:flex-end;justify-content:center}
+.fab{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom) + 16px);z-index:5;box-shadow:0 10px 30px #6a2c9166;padding:15px 26px;border-radius:99px;display:none}
+.sheet{position:fixed;inset:0;background:#2b173688;z-index:20;display:none;align-items:flex-end;justify-content:center}
 .sheet.on{display:flex}.sh{background:var(--c);width:100%;max-width:560px;max-height:92vh;overflow:auto;border-radius:28px 28px 0 0;padding:20px 18px calc(env(safe-area-inset-bottom) + 20px);animation:up .25s}
 @keyframes up{from{transform:translateY(40px);opacity:0}}
 .sh h2{font-size:20px;margin-bottom:12px}
-.row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #ead9c4}
+.row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #ecd3f0}
 .row .grow{flex:1}.q{display:flex;align-items:center;gap:8px}.q button{width:28px;height:28px;border-radius:50%;border:1px solid #ddc;background:#fff}
-input,select,textarea{width:100%;padding:12px 14px;border:1px solid #ead9c4;border-radius:12px;background:#fff;margin:5px 0}
+input,select,textarea{width:100%;padding:12px 14px;border:1px solid #ecd3f0;border-radius:12px;background:#fff;margin:5px 0}
 label{font-size:12px;color:var(--m);font-weight:600}
 .tot{display:flex;justify-content:space-between;padding:4px 0}.tot.b{font-weight:800;font-size:17px}
 .tabs{display:flex;gap:6px;margin:10px 0}.tabs .chip{flex:1;text-align:center}
-.ord{background:#fffd;border-radius:var(--r);padding:14px;margin:10px 0;box-shadow:0 6px 18px #b8893a1c}
+.ord{background:#fffd;border-radius:var(--r);padding:14px;margin:10px 0;box-shadow:0 6px 18px #8b3fb81c}
 .st{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11px;font-weight:800;color:#fff;background:var(--t)}
-.st.confirmée{background:var(--g)}.st.préparation{background:#8a5fb4}.st.livraison{background:#3a6fb4}.st.livrée{background:var(--v)}.st.annulée{background:#999}
+.st.confirmée{background:var(--g)}.st.préparation{background:#a21caf}.st.livraison{background:#3a6fb4}.st.livrée{background:var(--v)}.st.annulée{background:#999}
 .ban{position:fixed;left:12px;right:12px;bottom:calc(env(safe-area-inset-bottom) + 84px);z-index:15;background:var(--i);color:#fff;border-radius:18px;padding:12px 14px;display:none;align-items:center;gap:10px;font-size:13px}
 .ban .grow{flex:1}
 .toast{position:fixed;top:14px;left:50%;transform:translateX(-50%);background:var(--i);color:#fff;padding:10px 18px;border-radius:99px;z-index:50;display:none;font-size:13px}
@@ -83,8 +83,8 @@ const API=sb?{
  async order(o){const a=L('o',[]);a.unshift({...o,id:crypto.randomUUID(),created_at:new Date().toISOString(),status:'nouvelle'});W('o',a)},
  async orders(){return L('o',[])},
  async status(id,s){const a=L('o',[]);a.find(x=>x.id==id).status=s;W('o',a)},
- async login(p,w){if(p==CFG.gerante&&w=='demo'){W('cu',{phone:p,name:'Amandine',admin:true});return}const u=L('users',[]).find(x=>x.phone==p&&x.pw==w);if(!u)throw 1;W('cu',{phone:u.phone,name:u.name})},
- async signup(n,p,w){const a=L('users',[]);if(a.find(x=>x.phone==p))throw 1;a.push({name:n,phone:p,pw:w});W('users',a);W('cu',{phone:p,name:n})},
+ async login(p,w){if(p==CFG.gerante){if(!CFG.demoPass||w!=CFG.demoPass)throw 1;W('cu',{phone:p,name:'Amandine',admin:true});return}const u=L('users',[]).find(x=>x.phone==p&&x.pw==w);if(!u)throw 1;W('cu',{phone:u.phone,name:u.name})},
+ async signup(n,p,w){const a=L('users',[]);if(p==CFG.gerante||a.find(x=>x.phone==p))throw 1;a.push({name:n,phone:p,pw:w});W('users',a);W('cu',{phone:p,name:n})},
  async clients(){return L('users',[]).map(u=>({id:u.phone,name:u.name,phone:u.phone}))},
  async reset(id){const a=L('users',[]),u=a.find(x=>x.phone==id),pw=String(Math.floor(100000+Math.random()*900000));u.pw=pw;W('users',a);return pw},
  async out(){W('cu',null)},async user(){return L('cu',null)},
@@ -98,7 +98,7 @@ async function boot(){await whoami();[P,Z]=await Promise.all([API.products(),API
 function route(){location.hash=='#gerante'?admin():shop()}
 addEventListener('hashchange',route);
 function shop(){const cs=['Tout',...CFG.cats],l=P.filter(p=>p.active!==false&&(cat=='Tout'||p.category==cat)&&p.name.toLowerCase().includes(qs.toLowerCase()));
-$('#app').innerHTML=`<input class="search" placeholder="Rechercher un article…" value="${E(qs)}" oninput="qs=this.value;grid()"><div class="chips">${cs.map(c=>`<div class="chip ${c==cat?'on':''}" onclick="cat='${c.replace(/'/g,"\\'")}';shop()">${E(c)}</div>`).join('')}</div><div class="grid" id="grid"></div><footer>Livraison rapide dans tout Abidjan · WhatsApp ${E(CFG.wa.replace(/^225/,'+225 '))}<br><a href="#gerante">Espace gérante</a></footer>`;grid();fab()}
+$('#app').innerHTML=`<input class="search" placeholder="Rechercher un article…" value="${E(qs)}" oninput="qs=this.value;grid()"><div class="chips">${cs.map(c=>`<div class="chip ${c==cat?'on':''}" onclick="cat='${c.replace(/'/g,"\\'")}';shop()">${E(c)}</div>`).join('')}</div><div class="grid" id="grid"></div><footer>Livraison rapide dans tout Abidjan · WhatsApp ${E(CFG.wa.replace(/^225/,'+225 '))}</footer>`;grid();fab()}
 function grid(){const l=P.filter(p=>p.active!==false&&(cat=='Tout'||p.category==cat)&&p.name.toLowerCase().includes(qs.toLowerCase()));
 $('#grid').innerHTML=l.map(p=>`<div class="card"><div class="ph" style="${p.image_url?`background-image:url('${E(p.image_url)}')`:''}">${p.image_url?'':'A'}</div><div class="cb"><b>${E(p.name)}</b><span class="pr">${F(p.price)}</span>${p.stock<=0?'<small>Épuisé</small>':`<button class="btn s" onclick="add('${p.id}')">+ Ajouter</button>`}</div></div>`).join('')||'<div class="empty" style="grid-column:1/-1">Aucun article pour le moment.</div>'}
 function fab(){const f=$('#fab'),n=cnt();f.style.display=n&&location.hash!='#gerante'?'block':'none';f.textContent=`🛍 Voir mon panier (${n}) · ${F(sub())}`}
@@ -120,17 +120,16 @@ const msg=`Bonjour Amandine, nouvelle commande ${o.ref} de ${n} (${p})\n${items.
 cart={};W('cart',cart);fab();openS(`<h2>✅ Commande envoyée !</h2><p>Référence <b>${o.ref}</b>. Merci ${E(n)} ! Amandine vous appelle bientôt pour confirmer la livraison.</p><a class="btn v" style="display:block;text-align:center;text-decoration:none;margin-top:14px" target="_blank" href="https://wa.me/${CFG.wa}?text=${encodeURIComponent(msg)}">Prévenir sur WhatsApp</a><button class="btn o" style="width:100%;margin-top:8px" onclick="closeS()">Fermer</button>`)}
 /* ===== Espace gérante ===== */
 let tab='cmd',OR=[],tm;
-async function admin(){fab();if(!U?.admin){$('#app').innerHTML=`<div class="ord" style="margin-top:20px"><h2>Espace gérante</h2><label>Votre numéro</label><input id="lp" type="tel" value="${CFG.gerante}"><label>Mot de passe${sb?'':' (démo : demo)'}</label><input id="lw" type="password"><button class="btn" style="width:100%;margin-top:8px" onclick="login()">Se connecter</button><p style="margin-top:10px"><a href="#" onclick="location.hash=''">← Retour boutique</a></p></div>`;return}
+async function admin(){fab();if(!U?.admin){location.hash='';if(U)toast('Accès réservé à la gérante');else accForm('in');return}
 OR=await API.orders();clearTimeout(tm);tm=setTimeout(()=>{if(location.hash=='#gerante'&&tab=='cmd')admin()},30000);
 const nb=OR.filter(o=>o.status=='nouvelle').length;
-$('#app').innerHTML=`<div class="tabs"><div class="chip ${tab=='cmd'?'on':''}" onclick="tab='cmd';admin()">Commandes${nb?` (${nb})`:''}</div><div class="chip ${tab=='art'?'on':''}" onclick="tab='art';admin()">Articles</div><div class="chip ${tab=='liv'?'on':''}" onclick="tab='liv';admin()">Livraison</div><div class="chip ${tab=='cli'?'on':''}" onclick="tab='cli';admin()">Clientes</div></div><div id="ad"></div><p style="text-align:center;margin:20px"><a href="#" onclick="location.hash=''">← Boutique</a> · <a href="#gerante" onclick="API.out().then(whoami).then(admin)">Déconnexion</a></p>`;
+$('#app').innerHTML=`<div class="tabs"><div class="chip ${tab=='cmd'?'on':''}" onclick="tab='cmd';admin()">Commandes${nb?` (${nb})`:''}</div><div class="chip ${tab=='art'?'on':''}" onclick="tab='art';admin()">Articles</div><div class="chip ${tab=='liv'?'on':''}" onclick="tab='liv';admin()">Livraison</div><div class="chip ${tab=='cli'?'on':''}" onclick="tab='cli';admin()">Clientes</div></div><div id="ad"></div><p style="text-align:center;margin:20px"><a href="#" onclick="location.hash=''">← Boutique</a> · <a href="#" onclick="API.out().then(whoami).then(()=>{location.hash='';toast('Déconnectée')})">Déconnexion</a></p>`;
 ({cmd:vCmd,art:vArt,liv:vLiv,cli:vCli})[tab]()}
-async function login(){try{await API.login($('#lp').value.replace(/\D/g,''),$('#lw').value);await whoami();admin()}catch{toast('Identifiants incorrects')}}
 const NX={nouvelle:['confirmée','Confirmer'],confirmée:['préparation','En préparation'],préparation:['livraison','En livraison'],livraison:['livrée','Marquer livrée']};
 function vCmd(){$('#ad').innerHTML=OR.map(o=>{const n=NX[o.status],tel=o.phone.replace(/\D/g,''),w=tel.startsWith('225')?tel:'225'+tel;return`<div class="ord"><div class="row" style="border:0"><b class="grow">${E(o.customer_name)} <small>${E(o.ref||'')}</small></b><span class="st ${o.status}">${o.status}</span></div><small>${new Date(o.created_at).toLocaleString('fr-FR')} · ${E(o.commune)} · ${E(o.address)}</small><div style="margin:8px 0">${(o.items||[]).map(i=>`${i.qty} × ${E(i.name)}`).join('<br>')}${o.note?`<br><i>${E(o.note)}</i>`:''}</div><b>${F(o.total)}</b> <small>(livraison ${F(o.delivery_fee)})</small><div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:10px"><a class="btn s o" href="tel:${E(o.phone)}" style="text-decoration:none">📞 Appeler</a><a class="btn s o" target="_blank" href="https://wa.me/${w}" style="text-decoration:none">💬 WhatsApp</a>${n?`<button class="btn s v" onclick="ST('${o.id}','${n[0]}')">${n[1]}</button>`:''}${['nouvelle','confirmée','préparation'].includes(o.status)?`<button class="btn s t" onclick="ST('${o.id}','annulée')">Annuler</button>`:''}</div></div>`}).join('')||'<div class="empty">Aucune commande pour le moment.</div>'}
 const MSG={confirmée:`votre commande est confirmée ✅`,préparation:`votre commande est en préparation 🧵`,livraison:`votre commande est en route 🚚, restez joignable`,livrée:`votre commande est livrée. Merci pour votre confiance 🙏`,annulée:`votre commande a été annulée. Contactez-nous pour plus d'informations`};
-async function vCli(){const c=await API.clients();$('#ad').innerHTML=c.map(x=>`<div class="row"><div class="grow"><b>${E(x.name||'—')}</b><br><small>${E(x.phone)}</small></div><button class="btn s o" onclick="RP('${x.id}')">Mot de passe</button></div>`).join('')||'<div class="empty">Aucune cliente inscrite.</div>'}
-async function RP(id){if(!confirm('Générer un nouveau mot de passe pour cette cliente ?'))return;try{const p=await API.reset(id),c=(await API.clients()).find(x=>x.id==id),t=c.phone.replace(/\D/g,''),w=t.startsWith('225')?t:'225'+t;openS(`<h2>Nouveau mot de passe</h2><p style="font-size:30px;font-weight:800;text-align:center;letter-spacing:4px">${p}</p><a class="btn v" style="display:block;text-align:center;text-decoration:none" target="_blank" href="https://wa.me/${w}?text=${encodeURIComponent('Bonjour, votre nouveau mot de passe Amandine : '+p)}">Envoyer par WhatsApp</a>`)}catch(e){toast('Échec (fonction reset-password déployée ?)')}}
+async function vCli(){const c=await API.clients();$('#ad').innerHTML=c.map(x=>`<div class="row"><div class="grow"><b>${E(x.name||'—')}</b><br><small>${E(x.phone)}</small></div><button class="btn s o" onclick="RP('${x.id}')">Nouveau code</button></div>`).join('')||'<div class="empty">Aucune cliente inscrite.</div>'}
+async function RP(id){if(!confirm('Générer un nouveau code pour cette cliente ?'))return;try{const p=await API.reset(id),c=(await API.clients()).find(x=>x.id==id),t=c.phone.replace(/\D/g,''),w=t.startsWith('225')?t:'225'+t;openS(`<h2>Nouveau code d'accès</h2><p style="font-size:30px;font-weight:800;text-align:center;letter-spacing:4px">${p}</p><a class="btn v" style="display:block;text-align:center;text-decoration:none" target="_blank" href="https://wa.me/${w}?text=${encodeURIComponent('Bonjour, votre nouveau code de connexion Amandine : '+p)}">Envoyer par WhatsApp</a>`)}catch(e){toast('Échec, réessayez')}}
 async function ST(id,s){const o=OR.find(x=>x.id==id);await API.status(id,s);await admin();const t=o.phone.replace(/\D/g,''),w=t.startsWith('225')?t:'225'+t,m=`Bonjour ${o.customer_name}, ${MSG[s]} (${o.ref||''}). Amandine`;
 openS(`<h2>Prévenir la cliente ?</h2><p>Envoyer ce message WhatsApp à ${E(o.customer_name)} :</p><p style="background:#fff;border-radius:12px;padding:10px;margin:10px 0"><i>${E(m)}</i></p><a class="btn v" style="display:block;text-align:center;text-decoration:none" target="_blank" href="https://wa.me/${w}?text=${encodeURIComponent(m)}" onclick="closeS()">Envoyer le message</a><button class="btn o" style="width:100%;margin-top:8px" onclick="closeS()">Plus tard</button>`)}
 function vArt(){$('#ad').innerHTML=`<button class="btn" style="width:100%" onclick="eP()">+ Ajouter un article</button>`+P.map(p=>`<div class="row"><div class="ph" style="width:52px;height:52px;border-radius:12px;font-size:26px;${p.image_url?`background-image:url('${E(p.image_url)}')`:''}">${p.image_url?'':'A'}</div><div class="grow"><b>${E(p.name)}</b>${p.active===false?' <small>(masqué)</small>':''}<br><small>${E(p.category)} · stock ${p.stock}</small><br><input type="number" value="${p.price}" style="width:110px;padding:6px 8px;margin:2px 0" onchange="qp('${p.id}',this.value)"> <small>FCFA</small></div><button class="btn s o" onclick="eP('${p.id}')">Modifier</button></div>`).join('')}
