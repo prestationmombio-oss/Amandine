@@ -52,7 +52,7 @@ footer{text-align:center;color:var(--m);font-size:12px;margin:30px 0}footer a{co
 <script>
 const $=s=>document.querySelector(s),F=n=>Number(n||0).toLocaleString('fr-FR')+' FCFA',E=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const L=(k,d)=>{try{return JSON.parse(localStorage.getItem('amd_'+k))??d}catch{return d}},W=(k,v)=>localStorage.setItem('amd_'+k,JSON.stringify(v));
-const toast=t=>{const e=$('#toast');e.textContent=t;e.style.display='block';setTimeout(()=>e.style.display='none',2600)};
+const toast=t=>{const e=$('#toast');e.textContent=t;e.style.display='block';setTimeout(()=>e.style.display='none',5000)};
 function shrink(f){return new Promise(r=>{const i=new Image();i.onload=()=>{const k=Math.min(1,900/Math.max(i.width,i.height)),c=document.createElement('canvas');c.width=i.width*k;c.height=i.height*k;c.getContext('2d').drawImage(i,0,0,c.width,c.height);c.toBlob(b=>r(b),'image/jpeg',.8)};i.src=URL.createObjectURL(f)})}
 const sb=(CFG.url&&window.supabase)?supabase.createClient(CFG.url,CFG.key):null;
 /* ===== Couche données : Supabase, ou mode démo (localStorage) ===== */
@@ -84,7 +84,7 @@ const API=sb?{
  async orders(){return L('o',[])},
  async status(id,s){const a=L('o',[]);a.find(x=>x.id==id).status=s;W('o',a)},
  async login(p,w){if(p==CFG.gerante){if(!CFG.demoPass||w!=CFG.demoPass)throw 1;W('cu',{phone:p,name:'Amandine',admin:true});return}const u=L('users',[]).find(x=>x.phone==p&&x.pw==w);if(!u)throw 1;W('cu',{phone:u.phone,name:u.name})},
- async signup(n,p,w){const a=L('users',[]);if(p==CFG.gerante||a.find(x=>x.phone==p))throw 1;a.push({name:n,phone:p,pw:w});W('users',a);W('cu',{phone:p,name:n})},
+ async signup(n,p,w){const a=L('users',[]);if(p==CFG.gerante)throw new Error('site non relié à Supabase (config.js vide ou incorrect)');if(a.find(x=>x.phone==p))throw new Error('numéro déjà utilisé');a.push({name:n,phone:p,pw:w});W('users',a);W('cu',{phone:p,name:n})},
  async clients(){return L('users',[]).map(u=>({id:u.phone,name:u.name,phone:u.phone}))},
  async reset(id){const a=L('users',[]),u=a.find(x=>x.phone==id),pw=String(Math.floor(100000+Math.random()*900000));u.pw=pw;W('users',a);return pw},
  async out(){W('cu',null)},async user(){return L('cu',null)},
@@ -145,7 +145,7 @@ function openAcc(){if(U?.admin){location.hash='#gerante';return}U?accHome():accF
 function accForm(m){const s=m=='up';openS(`<h2>${s?'Créer un compte':'Se connecter'}</h2><div class="tabs"><div class="chip ${s?'':'on'}" onclick="accForm('in')">Connexion</div><div class="chip ${s?'on':''}" onclick="accForm('up')">Créer un compte</div></div>${s?'<label>Nom</label><input id="an" autocomplete="name">':''}<label>Téléphone</label><input id="ap" type="tel" autocomplete="tel"><label>Mot de passe${s?' (6 caractères minimum)':''}</label><input id="aw" type="password" autocomplete="${s?'new':'current'}-password"><button class="btn v" style="width:100%;margin-top:10px" id="ag" onclick="accGo('${m}')">${s?'Créer mon compte':'Me connecter'}</button><p class="tag" style="margin-top:10px;text-align:center">Pas besoin de compte pour commander.</p>${s?'':`<p class="tag" style="text-align:center;margin-top:6px"><a style="color:var(--t);font-weight:700" target="_blank" href="https://wa.me/${CFG.wa}?text=${encodeURIComponent("Bonjour, j'ai oublié mon mot de passe")}">Mot de passe oublié ?</a></p>`}`)}
 async function accGo(m){const n=$('#an')?.value.trim(),p=$('#ap').value.replace(/\D/g,''),w=$('#aw').value;
 if(p.length<8||w.length<6||(m=='up'&&!n))return toast('Complétez les champs (mot de passe : 6 caractères min.)');
-$('#ag').disabled=true;try{m=='up'?await API.signup(n,p,w):await API.login(p,w);await whoami();closeS();toast('Bienvenue '+(U.name||''));if(U.admin)location.hash='#gerante'}catch{$('#ag').disabled=false;toast(m=='up'?'Création impossible (numéro déjà utilisé ?)':'Identifiants incorrects')}}
+$('#ag').disabled=true;try{m=='up'?await API.signup(n,p,w):await API.login(p,w);await whoami();closeS();toast('Bienvenue '+(U.name||''));if(U.admin)location.hash='#gerante'}catch(e){$('#ag').disabled=false;toast(m=='up'?'Création impossible : '+(e?.message||'numéro déjà utilisé ?'):/confirm/i.test(e?.message||'')?'Compte non confirmé : désactivez « Confirm email » dans Supabase':'Identifiants incorrects')}}
 async function accHome(){const o=await API.myOrders();openS(`<h2>Bonjour ${E(U.name||U.phone)}</h2><h3 style="margin:8px 0">Mes commandes</h3>${o.map(x=>`<div class="row"><div class="grow"><small>${new Date(x.created_at).toLocaleDateString('fr-FR')}</small><br>${(x.items||[]).map(i=>`${i.qty} × ${E(i.name)}`).join(', ')}<br><b>${F(x.total)}</b></div><span class="st ${x.status}">${x.status}</span></div>`).join('')||'<div class="empty">Aucune commande pour le moment.</div>'}<button class="btn o" style="width:100%;margin-top:12px" onclick="API.out().then(whoami).then(()=>{closeS();toast('Déconnecté')})">Se déconnecter</button>`)}
 /* ===== PWA ===== */
 if('serviceWorker'in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js'));
